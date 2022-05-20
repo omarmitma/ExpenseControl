@@ -1,0 +1,26 @@
+<div class="contentCard">
+    <div class="card">
+        <div class="tableGastos">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="name">Mes</th>
+                        <th class="Presupuesto">Presupuesto Restante</th>
+                        <th class="gasto">Gasto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let m of dataMonth">
+                        <td>{{ m.mes }}</td>
+                        <td>{{ m.monto | currency:'S/.' }}</td>
+                        <td>{{ m.gasto | currency:'S/.' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="contentTotal">
+            <div class="text">Gasto Total</div>
+            <div class="total">{{ total | currency:'S/.' }}</div>
+        </div>
+    </div>
+</div>

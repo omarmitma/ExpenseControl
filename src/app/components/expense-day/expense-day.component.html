@@ -1,0 +1,60 @@
+<div class="contentCard">
+    <div class="card">
+        <div class="addGasto">
+            <div class="itemHeader">
+                <div class="dayFilter">
+                    <span>Filtrar dia</span>
+                    <input type="date" (change)="filterGastos()" [(ngModel)]="dateFilter">
+                </div>
+            </div>
+            <div class="itemHeader">
+                <button class="btnAdd" *ngIf="filterDayIsToday" (click)="openModalAddGasto()">
+                    <img src="assets/image/anadir.png">
+                    Agregar
+                </button>
+            </div>
+        </div>
+        <div class="tableGastos">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="name">Nombre</th>
+                        <th class="gasto">Gasto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let g of gastosByDay">
+                        <td>{{g.nombre}}</td>
+                        <td>{{g.gasto | currency :'S/. '}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="contentTotal">
+            <div class="text">Gasto Total</div>
+            <div class="total">{{gastoTotalByDay | currency:'S/. '}}</div>
+        </div>
+    </div>
+</div>
+<div class="modalAddGasto" *ngIf="ModalAddGasto">
+  <div class="content">
+    <div class="header">
+      <p>AGREGAR GASTO</p>
+      <button (click)="openModalAddGasto()"><img src="assets/image/cerrar.png"></button>
+    </div>
+    <div class="main">
+      <div class="contentInput">
+        <span>Nombre:</span>
+        <input type="text" [(ngModel)]="nombre">
+      </div>
+      <div class="contentInput">
+        <span>Monto:</span>
+        <input type="number" step="0.01" [(ngModel)]="monto">
+      </div>
+    </div>
+    <div class="buttons">
+      <button (click)="openModalAddGasto()">Cancelar</button>
+      <button (click)="addGasto()">Agregar</button>
+    </div>
+  </div>
+</div>

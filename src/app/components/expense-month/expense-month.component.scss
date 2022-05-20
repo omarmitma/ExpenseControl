@@ -1,0 +1,66 @@
+$backgroundCard: rgb(37,39,60);
+$letter: rgb(202, 205, 232);
+.contentCard{
+    padding-top: 90px;
+    .card{
+        width: 700px;
+        margin: auto;
+        .tableGastos{
+            background-color: $backgroundCard;
+            margin-top: 10px;
+            border-radius: 5px;
+            height: 380px;
+            table{
+                color: $letter;
+                width: 100%;
+                border-collapse: collapse;
+                thead{
+                    tr{
+                        border-bottom: 2px solid #686c85;
+                        th{
+                            padding: 15px 10px;
+                            text-align: left;
+                            font-size: 17px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        border-bottom: 1px solid #4d5066;
+                        td{
+                            padding: 10px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+        .contentTotal{
+            background-color: $backgroundCard;
+            margin-top: 10px;
+            border-radius: 5px;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: 65% 35%;
+            color: $letter;
+            .text{
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media(max-width:752px){
+    .contentCard{
+      .card{
+        width: 95%;
+        .addGasto{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+    }
+  }
